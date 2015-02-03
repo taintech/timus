@@ -7,6 +7,11 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/**
+ * 1) This type of problem is called 'Balanced Partition'.
+ * 2) Watch the video #7 on the subject at http://people.csail.mit.edu/bdean/6.046/dp/
+ * 3) Another great video on the subject: http://www.youtube.com/watch?v=EH6h7WA7sDw
+ * */
 public class StonesSumEasy {
     public static void main(String[] args) throws Exception {
         solve(System.in, System.out);

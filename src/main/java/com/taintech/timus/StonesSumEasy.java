@@ -3,7 +3,8 @@ package com.taintech.timus;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class StonesSumEasy {
@@ -11,7 +12,7 @@ public class StonesSumEasy {
         solve(System.in, System.out);
     }
 
-    //TODO fails at test 5
+    //fails test 5
     public static void solve(InputStream input, PrintStream output) throws Exception {
         Scanner in = new Scanner(input);
         PrintWriter out = new PrintWriter(output);
@@ -22,18 +23,17 @@ public class StonesSumEasy {
             ar[i] = in.nextInt();
         }
 
-        Arrays.sort(ar);
-        long sum1 = 0L;
-        long sum2 = 0L;
-        for (int i = n-1; i >= 0; i--) {
-            int e = ar[i];
-            long a = sum1 + e;
-            long b = sum2 + e;
-            if (Math.abs(a - sum2) <= Math.abs(b - sum1))
-                sum1 += e;
-            else sum2 += e;
+        PriorityQueue<Integer> heap = new PriorityQueue<Integer>(n, Collections.reverseOrder());
+        for (Integer i: ar) {
+            heap.add(i);
         }
-        out.println(Math.abs(sum1-sum2));
+
+        while(heap.size()>1) {
+            int a = heap.poll();
+            int b = heap.poll();
+            heap.add(a-b);
+        }
+        out.println(heap.poll());
         out.flush();
     }
 }

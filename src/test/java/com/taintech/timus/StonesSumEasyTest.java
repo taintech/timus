@@ -10,10 +10,15 @@ import static org.junit.Assert.assertTrue;
 
 public class StonesSumEasyTest {
 
-    @Test
-    public void test() throws Exception {
+    @Test(timeout = 1000)
+    public void testSolution() throws Exception {
         assertTrue(3 == solve("5\n 5 8 13 27 14"));
         assertTrue(96 == solve("5\n 100 1 1 1 1"));
+    }
+
+    @Test(timeout = 1000)
+    public void testSolutionWithMaxIterations() throws Exception {
+        assertTrue(0 == solve("20\n 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"));
     }
 
     int solve(String input) throws Exception {

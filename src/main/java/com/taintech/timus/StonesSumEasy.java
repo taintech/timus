@@ -10,7 +10,6 @@ public class StonesSumEasy {
         solve(System.in, System.out);
     }
 
-    //Fails on test 2
     public static void solve(InputStream input, PrintStream output) throws Exception {
         Scanner in = new Scanner(input);
         PrintWriter out = new PrintWriter(output);
@@ -22,8 +21,8 @@ public class StonesSumEasy {
         }
 
         byte[] bytes = new byte[n];
-        bytes[n - 1] = 1;
-        int limit = (int) Math.pow(2, n - 1);
+        bytes[0] = 1;
+        int limit = (int) Math.pow(2, n);
         int min = Integer.MAX_VALUE;
         int temp;
         for (int i = 1; i < limit; i++) {
